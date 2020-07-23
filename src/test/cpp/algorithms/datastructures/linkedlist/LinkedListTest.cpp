@@ -285,16 +285,16 @@ TEST_F(LinkListTest, testRandomizedRemoving) {
   std::random_device rd;
   std::mt19937 mt(rd());
   std::uniform_real_distribution<double> dist(0, MAX_RAND_NUM);
-  std::list <int> javaLinkedList;
+  std::list <int> stdLinkedList;
 
   for (int loops = 0; loops < LOOPS; loops++) {
 
     list->clear();
-    javaLinkedList.clear();
+    stdLinkedList.clear();
 
     std::vector<int> randNums = genRandList<int>(0, MAX_RAND_NUM, TEST_SZ);
     for (const int& value : randNums) {
-      javaLinkedList.push_back(value);
+      stdLinkedList.push_back(value);
       list->add(value);
     }
 
@@ -304,26 +304,26 @@ TEST_F(LinkListTest, testRandomizedRemoving) {
 
       int rm_val = *ptr;
 
-      javaLinkedList.remove(rm_val);
+      stdLinkedList.remove(rm_val);
       ASSERT_EQ(true, list->remove(rm_val));
-      ASSERT_EQ(javaLinkedList.size(), list->size());
+      ASSERT_EQ(stdLinkedList.size(), list->size());
 
       DoublyLinkedList<int>::Iterator iter2 = list->begin();
-      for (std::list<int>::iterator iter1 = javaLinkedList.begin();	iter1 != javaLinkedList.end(); iter1++) {
+      for (std::list<int>::iterator iter1 = stdLinkedList.begin();	iter1 != stdLinkedList.end(); iter1++) {
         ASSERT_EQ(*iter1, *iter2++);
       }
 
       iter2 = list->begin();
-      for (std::list<int>::iterator iter1 = javaLinkedList.begin();	iter1 != javaLinkedList.end(); iter1++) {
+      for (std::list<int>::iterator iter1 = stdLinkedList.begin();	iter1 != stdLinkedList.end(); iter1++) {
         ASSERT_EQ(*iter1, *iter2++);
       }
     }
 
     list->clear();
-    javaLinkedList.clear();
+    stdLinkedList.clear();
 
     for (const int& value : randNums) {
-      javaLinkedList.push_back(value);
+      stdLinkedList.push_back(value);
       list->add(value);
     }
 
@@ -331,12 +331,12 @@ TEST_F(LinkListTest, testRandomizedRemoving) {
     for (std::vector<int>::iterator ptr = randNums.begin(); ptr < randNums.end(); ptr++) {
 
       int rm_val = static_cast<int>(dist(mt));
-      javaLinkedList.remove(rm_val);
+      stdLinkedList.remove(rm_val);
       list->remove(rm_val);
-      ASSERT_EQ(javaLinkedList.size(), list->size());
+      ASSERT_EQ(stdLinkedList.size(), list->size());
 
       DoublyLinkedList<int>::Iterator iter2 = list->begin();
-      for (std::list<int>::iterator iter1 = javaLinkedList.begin();	iter1 != javaLinkedList.end(); iter1++) {
+      for (std::list<int>::iterator iter1 = stdLinkedList.begin();	iter1 != stdLinkedList.end(); iter1++) {
         ASSERT_EQ(*iter1, *iter2++);
       }
     }
@@ -345,16 +345,16 @@ TEST_F(LinkListTest, testRandomizedRemoving) {
 
 
 TEST_F(LinkListTest, testRandomizedIndexOf) {
-  std::list<int> javaLinkedList;
+  std::list<int> stdLinkedList;
 
   for (int loops = 0; loops < LOOPS; loops++) {
 
-    javaLinkedList.clear();
+    stdLinkedList.clear();
     list->clear();
 
     std::vector<int> randNums = genRandList<int>(0, MAX_RAND_NUM, TEST_SZ);
     for (const int& value : randNums) {
-      javaLinkedList.push_back(value);
+      stdLinkedList.push_back(value);
       list->add(value);
     }
 
@@ -364,17 +364,17 @@ TEST_F(LinkListTest, testRandomizedIndexOf) {
       int elem = *ptr;
       int index1 = -1;
 
-  	  auto itr = std::find(javaLinkedList.begin(), javaLinkedList.end(), elem);
-  	  if (itr != javaLinkedList.end()) {
-  		index1 = std::distance(javaLinkedList.begin(), itr);
+  	  auto itr = std::find(stdLinkedList.begin(), stdLinkedList.end(), elem);
+  	  if (itr != stdLinkedList.end()) {
+  		index1 = std::distance(stdLinkedList.begin(), itr);
       }
       int index2 = list->indexOf(elem);
 
       ASSERT_EQ(index1, index2);
-      ASSERT_EQ(javaLinkedList.size(), list->size());
+      ASSERT_EQ(stdLinkedList.size(), list->size());
 
       DoublyLinkedList<int>::Iterator iter2 = list->begin();
-      for (std::list<int>::iterator iter1 = javaLinkedList.begin();	iter1 != javaLinkedList.end(); iter1++) {
+      for (std::list<int>::iterator iter1 = stdLinkedList.begin();	iter1 != stdLinkedList.end(); iter1++) {
         ASSERT_EQ(*iter1, *iter2++);
       }
     }
