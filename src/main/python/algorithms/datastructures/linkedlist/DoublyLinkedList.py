@@ -112,6 +112,9 @@ class DoublyLinkedList(object):
     """ 
     if index < 0:
       raise Exception('index should not be negative. The value of index was: {}'.format(index))
+      
+    if index > self.llSize:
+      raise Exception('index is out of bounds. The value of index was: {}'.format(index))
     
     if index == 0:
       self.addFirst(data)
