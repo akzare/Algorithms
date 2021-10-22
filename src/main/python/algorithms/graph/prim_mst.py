@@ -6,11 +6,14 @@ class Graph:
         self.V = vertices
         self.graph = [[0 for column in range(vertices)] for row in range(vertices)]
 
-    def printMST(self, parent):
+    # Function to print the constructed MST stored in parent[]    
+	def printMST(self, parent):
         print("Edge \tWeight")
         for i in range(1, self.V):
             print(parent[i], "-", i, "\t", self.graph[i][parent[i]])
 
+    # Function to find the vertex with minimum distance value, from
+    # the set of vertices not yet included in shortest path tree
     def minKey(self, key, mstSet):
 
         # Initilaize min value
@@ -23,6 +26,8 @@ class Graph:
 
         return min_index
 
+	# Function to construct and print MST for a graph represented using
+    # adjacency matrix representation
     def primMST(self):
 
         # Key values used to pick minimum weight edge in cut
@@ -31,7 +36,7 @@ class Graph:
         key[0] = 0  # Make key 0 so that this vertex is picked as first vertex
         mstSet = [False] * self.V
 
-        parent[0] = -1  # First node is always the root of
+        parent[0] = -1  # First node is always the root 
 
         for cout in range(self.V):
 
