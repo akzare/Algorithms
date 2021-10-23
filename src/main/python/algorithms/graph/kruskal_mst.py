@@ -92,7 +92,7 @@ class Graph:
 			# Else discard the edge
 
 		minimumCost = 0
-		print ("Edges in the construvted MST")
+		print ("Edges in the constructed MST")
 		for u, v, weight in result:
 			minimumCost += weight
 			print("%d -- %d = %d" % (u, v, weight))
