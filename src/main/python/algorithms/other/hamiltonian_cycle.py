@@ -75,7 +75,7 @@ class Graph:
         return True
 
     def printSolution(self, path):
-        print("Solution Exists: Following is one Hamiltonian Cycle")
+        print("Solution Exists: Hamiltonian Cycle Found")
         for vertex in path:
             print(vertex, end="")
         print(path[0])
