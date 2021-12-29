@@ -1,0 +1,87 @@
+class SinglyNode:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def __repr__(self):
+        return self.data
+
+
+class SinglyLinkedList:
+    def __init__(self, nodes=None):
+        self.head = None
+        self.tail = None
+        self.nodes = nodes
+        if nodes is None:
+            self.size = 0
+        if nodes is not None:
+            self.size = len(nodes)
+            node = SinglyNode(data=nodes.pop(0))
+            self.head = node
+            for elem in nodes:
+                node.next = SinglyNode(data=elem)
+                node = node.next
+                self.tail = node
+
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node is not None:
+            nodes.append(str(node.data))
+            node = node.next
+        if self.size == 0:
+            return "None"
+        nodes.append("None")
+        return " --> ".join(nodes)
+
+    def __len__(self):
+        return self.size
+
+    def clear(self):
+        node = self.head
+        while node is not None:
+            node.data = None
+            node = node.next
+        self.size = 0
+
+    def isEmpty(self):
+        if self.size == 0:
+            return True
+        else:
+            return False
+
+    def findHead(self):
+        return self.head
+
+    def findTail(self):
+        return self.tail
+
+    def findSize(self):
+        node = self.head
+        total_nodes = 0
+        while node is not None:
+            node = node.next
+            total_nodes += 1
+        self.size = total_nodes
+        return self.size
+
+    def addLast(self, element):
+        if self.size == 0:
+            self.head = SinglyNode(element)
+            self.size += 1
+
+        if self.tail is None:
+            new_node = SinglyNode(element)
+            self.tail = new_node
+
+        node = self.tail
+        new_node = SinglyNode(element)
+        node.next = new_node
+        self.tail = node.next
+        self.size += 1
