@@ -33,7 +33,7 @@ class IntStack(Stack):
 
   def size(self):
     """
-    Returns the number of elements insize the stack
+    Returns the number of elements inside the stack
     """
     return self.pos
 
