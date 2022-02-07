@@ -36,7 +36,7 @@ class BinarySearch():
       else:
         lo = mid
 
-      if (hi - lo) > self.EPS:
+      if (hi - lo) <= self.EPS:
         break
 
     return mid
