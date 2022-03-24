@@ -42,7 +42,7 @@ public:
   virtual ~Stack() {}
 
   // return the ID the stack implementation
-  virtual int id() { return id_; }
+  virtual int id() const { return id_; }
 
   // return the number of elements in the stack
   virtual int size() = 0;
