@@ -126,7 +126,8 @@ class DoublyLinkedList(object):
       temp = temp.next
 
     newNode = Node(data, temp, temp.next)
-    temp.next.prev = newNode
+    newNode.prev = temp.next.prev 
+    newNode.next = temp.next
     temp.next = newNode
 
     self.llSize += 1
