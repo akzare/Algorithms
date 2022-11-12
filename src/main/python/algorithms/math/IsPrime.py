@@ -26,10 +26,11 @@ def isPrime(n):
     
     return True
 
-print(isPrime(5))
-print(isPrime(31))
-print(isPrime(1433))
-print(isPrime(8763857775536878331))
+if __name__=="__main__":
+    print(isPrime(5))
+    print(isPrime(31))
+    print(isPrime(1433))
+    print(isPrime(8763857775536878331))
 
     
     

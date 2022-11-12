@@ -16,13 +16,13 @@ def gcd(a,b):
     else:
         return gcd(b,a%b)
 
-
-print(gcd(12, 18))   # 6
-print(gcd(-12, 18))  # 6
-print(gcd(12, -18))  # 6
-print(gcd(-12, -18)) # 6
-print(gcd(5, 0))     # 5
-print(gcd(0, 5))     # 5
-print(gcd(-5, 0))    # 5
-print(gcd(0, -5))    # 5
-print(gcd(0, 0))     # 0
+if __name__=='__main__':
+    print(gcd(12, 18))   # 6
+    print(gcd(-12, 18))  # 6
+    print(gcd(12, -18))  # 6
+    print(gcd(-12, -18)) # 6
+    print(gcd(5, 0))     # 5
+    print(gcd(0, 5))     # 5
+    print(gcd(-5, 0))    # 5
+    print(gcd(0, -5))    # 5
+    print(gcd(0, 0))     # 0

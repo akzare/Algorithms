@@ -4,8 +4,8 @@
  * @date   11 Nov 2022
 
     
-    An implementation of the modPow(a, n, mod) operation.
-    Time Complexity O(lg(n))
+    An implementation of the modInv(a, m) operation.
+    Time Complexity ~O(log(a + b))
 
 '''
 
@@ -39,6 +39,6 @@ def modInv(a, m):
         return None
     return ((x % m)+m) % m
 
-
-print(modInv(2, 5))  # 2*3 mod 5=1
-print(modInv(4, 18))  # 4*x mod 18=1
+if __name__=='__main__':
+    print(modInv(2, 5))  # 2*3 mod 5=1
+    print(modInv(4, 18))  # 4*x mod 18=1
