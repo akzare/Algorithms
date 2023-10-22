@@ -110,8 +110,8 @@ class DoublyLinkedList(object):
     """ 
     Add an element at a specified index
     """ 
-    if index < 0:
-      raise Exception('index should not be negative. The value of index was: {}'.format(index))
+    if index < 0 or index > self.llSize:
+      raise Exception('Illegal index. The value of index was: {}'.format(index))
     
     if index == 0:
       self.addFirst(data)

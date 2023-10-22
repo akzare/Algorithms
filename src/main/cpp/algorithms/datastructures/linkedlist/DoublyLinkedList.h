@@ -194,7 +194,7 @@ public:
 
   // Add an element at a specified index
   void addAt(int index, const T &data) {
-    if (index < 0) {
+    if (index < 0 || index > size_) {
       throw ("Illegal Index");
     }
     if (index == 0) {
